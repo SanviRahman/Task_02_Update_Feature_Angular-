@@ -56,7 +56,7 @@ export class NodeComponent {
     this.editPopup = false;
   }
 
-  // ================= Helper: Collect all IDs =================
+ 
   collectIds(node: any, ids: number[]) {
     if (!node) return;
     ids.push(node.id);
