@@ -39,7 +39,8 @@
     <h3>Node Details</h3>
     <p><strong>ID:</strong> {{node.id}}</p>
     <p><strong>Name:</strong> {{node.name}}</p>
-    <p><strong>Parent:</strong> {{node.parent}}</p>
+    <p><strong>Parent:</strong> {{node.parent === null ? 'null' : node.parent}}</p>
     <button (click)="closeShow()">Close</button>
   </div>
 </div>
+
