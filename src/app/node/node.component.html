@@ -1,0 +1,45 @@
+<!-- div node -->
+<div *ngIf="node.name === 'div'" [style.margin-left.px]="level*20">
+  &lt;div&gt;
+  <button (click)="showNode()">Show</button>
+  <button (click)="toggleEdit()">Edit</button>
+
+  <!-- children -->
+  <ng-container *ngFor="let child of node.child">
+    <app-node [node]="child" [level]="level+1"></app-node>
+  </ng-container>
+
+  &lt;/div&gt;
+</div>
+
+<!-- label node -->
+<div *ngIf="node.name === 'label'" [style.margin-left.px]="level*20">
+  &lt;label&gt;{{node.text}}&lt;/label&gt;
+  <button (click)="showNode()">Show</button>
+  <button (click)="toggleEdit()">Edit</button>
+</div>
+
+<!-- Edit popup modal -->
+<div class="modal" *ngIf="editMode">
+  <div class="modal-content">
+    <span class="close" (click)="cancelEdit()">&times;</span>
+    <h3>Edit Node</h3>
+    <label>ID: <input type="number" [(ngModel)]="editedNode.id"></label><br>
+    <label>Name: <input type="text" [(ngModel)]="editedNode.name"></label><br>
+    <label>Parent: <input type="number" [(ngModel)]="editedNode.parent"></label><br>
+    <button (click)="saveEdit()">Save</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>
+
+<!-- Show popup modal -->
+<div class="modal" *ngIf="showMode">
+  <div class="modal-content">
+    <span class="close" (click)="closeShow()">&times;</span>
+    <h3>Node Details</h3>
+    <p><strong>ID:</strong> {{node.id}}</p>
+    <p><strong>Name:</strong> {{node.name}}</p>
+    <p><strong>Parent:</strong> {{node.parent}}</p>
+    <button (click)="closeShow()">Close</button>
+  </div>
+</div>
