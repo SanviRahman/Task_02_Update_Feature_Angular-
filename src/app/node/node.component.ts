@@ -52,11 +52,10 @@ export class NodeComponent {
     this.node.id = Number(this.editData.id);
     this.node.name = this.editData.name;
     this.node.parent = this.editData.parent === '' ? null : Number(this.editData.parent);
-
     this.editPopup = false;
   }
 
- 
+  // ================= Helper: Collect all IDs =================
   collectIds(node: any, ids: number[]) {
     if (!node) return;
     ids.push(node.id);
