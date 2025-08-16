@@ -1,43 +1,56 @@
-/* Modal background */
 .modal {
-  display: block;
   position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; 
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
 }
 
-/* Modal box */
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 15px;
-  border: 1px solid #888;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
   width: 300px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Close button */
 .close {
-  float: right;
+  align-self: flex-end;
   font-size: 24px;
   cursor: pointer;
 }
 
-.close:hover {
-  color: red;
+.close:hover { color: red; }
+
+.modal-content label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
 }
 
 .modal-content input {
-  width: 80%;
-  margin: 5px 0;
+  width: 100%;
   padding: 5px;
+  margin-top: 3px;
+  box-sizing: border-box;
 }
 
 .modal-content button {
-  margin-right: 10px;
   padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  background-color: #007bff;
+  color: white;
 }
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+p { color: brown; font-weight: bold; margin: 0; }
